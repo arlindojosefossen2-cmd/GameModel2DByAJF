@@ -1,0 +1,44 @@
+package br.com.ajf.game.input;
+
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import br.com.ajf.game.framework.GamePanel;
+
+
+/**
+ * The Class GameWindowFocusLost.
+ * Author A.J.F
+ */
+@SuppressWarnings("ClassCanBeRecord")
+public final class GameWindowFocusLost
+{
+	/** The window adapter. */
+	private final WindowAdapter windowAdapter;
+	/**
+	 * Instantiates a new game window focus lost.
+	 *
+	 * @param gamePanel Constructor that start the field
+	 */
+	public GameWindowFocusLost(final GamePanel gamePanel)
+	{	
+		windowAdapter = new WindowAdapter()
+		{
+			@Override
+			public void windowLostFocus(final WindowEvent e)
+			{
+				gamePanel.reset();
+			}
+		};
+	}
+	
+	/**
+	 * Gets the window adapter.
+	 *
+	 * @return the window adapter
+	 */
+	public WindowAdapter getWindowAdapter()
+	{
+		return windowAdapter;
+	}
+}
