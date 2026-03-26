@@ -70,4 +70,11 @@ public final class SoundEFX implements IAudio
 	{
 		return this.volume.getValue();
 	}
+
+	@Override
+	public void close()
+	{
+		this.clip.stop();
+		this.clip.close();
+	}
 }

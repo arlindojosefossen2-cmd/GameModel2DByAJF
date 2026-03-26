@@ -7,7 +7,6 @@ package br.com.ajf.game.audio.wav;
  */
 public interface IAudioManager
 {
-	
 	/**
 	 * Play.
 	 *
@@ -44,4 +43,6 @@ public interface IAudioManager
 	 * @return the volume
 	 */
 	float getVolume(int audioIndex);
+
+	void close();
 }

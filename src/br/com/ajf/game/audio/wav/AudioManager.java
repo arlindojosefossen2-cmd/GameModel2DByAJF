@@ -11,7 +11,6 @@ import java.util.List;
  */
 public final class AudioManager implements IAudioManager
 {
-	
 	/** The audios. */
 	private final List<IAudio> audios = new ArrayList<>();
 	
@@ -78,5 +77,15 @@ public final class AudioManager implements IAudioManager
 	public float getVolume(final int audioIndex)
 	{
 		return audios.get(audioIndex).getVolume();
+	}
+
+	@Override
+	public void close()
+	{
+		for (IAudio audio : this.audios)
+		{
+			audio.stop();
+			audio.close();
+		}
 	}
 }

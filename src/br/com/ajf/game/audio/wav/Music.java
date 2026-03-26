@@ -12,7 +12,6 @@ import javax.sound.sampled.FloatControl;
  */
 public final class Music implements IAudio
 {
-	
 	/** The clip. */
 	private final Clip clip;
 	
@@ -30,7 +29,6 @@ public final class Music implements IAudio
 		this.clip = loader.getClipOpened(musicPath);
 		this.volume = (FloatControl) this.clip.getControl(FloatControl.Type.MASTER_GAIN);
 	}
-	
 
 	/**
 	 * Play.
@@ -38,8 +36,8 @@ public final class Music implements IAudio
 	@Override
 	public void play()
 	{
-		this.clip.start();
 		this.clip.loop(Clip.LOOP_CONTINUOUSLY);
+		this.clip.start();
 	}
 
 	/**
@@ -72,5 +70,12 @@ public final class Music implements IAudio
 	public float getVolume()
 	{
 		return this.volume.getValue();
+	}
+
+	@Override
+	public void close()
+	{
+		this.clip.stop();
+		this.clip.close();
 	}
 }
