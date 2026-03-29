@@ -88,11 +88,11 @@ public final class Animation implements IAnimation
 		{
 			index++;
 			counter =0;
-				
-			if(index >= images.length)
-			{
-				index = 0;
-			}
+		}
+
+		if(index >= images.length)
+		{
+			index = 0;
 		}
 	}
 

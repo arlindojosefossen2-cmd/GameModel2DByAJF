@@ -45,7 +45,7 @@ public final class TMXTilesLoader
 			
 		List<Element> tileList = xmlUtility.getAllElementsByTagName(tileset,"tile");
 		
-		int tileCount = Integer.parseInt(tileset.getAttribute("tileCount"));
+		int tileCount = Integer.parseInt(tileset.getAttribute("tilecount"));
 			
 		Element imageElement = xmlUtility.getAllElementsByTagName(tileset, "image").getFirst();
 			
