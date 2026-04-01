@@ -17,7 +17,7 @@ import br.com.ajf.game.thread.IGameThreadManager;
 public final class GamePanel implements IGamePanel
 {
     /** The game render. */
-    private final GameRender gamerender;
+    private final RenderManager renderManager;
 	
 	/** The game thread manager. */
 	private final IGameThreadManager gameThreadManager;
@@ -44,9 +44,9 @@ public final class GamePanel implements IGamePanel
 	 */
 	public GamePanel(final Game game,final int width,final int height,final int threadType)
 	{
-		gamerender = new GameRender(width, height);
+		renderManager = new RenderManager(width, height);
 		this.gameThreadManager = new GameThreadManager(game,threadType);
-		gamerender.createJPanelAndAddProperties();
+		renderManager.createJPanelAndAddProperties();
 	}	
 	
 	/**
@@ -62,7 +62,7 @@ public final class GamePanel implements IGamePanel
 		GameInput.update();
 		GameMouseListener.update();
 		
-		this.gamerender.update();
+		this.renderManager.update();
 	}
 	
 	/**
@@ -70,8 +70,8 @@ public final class GamePanel implements IGamePanel
 	 */
 	public void draw()
 	{
-		this.gamerender.drawToBufferedImage();
-		this.gamerender.drawToScreen();
+		this.renderManager.drawToBufferedImage();
+		this.renderManager.drawToScreen();
 		lasTime = current;
 	}
 
@@ -100,7 +100,7 @@ public final class GamePanel implements IGamePanel
 	 */
 	public Scene setScene(final Scene scene)
 	{
-		return gamerender.addScene(scene);
+		return renderManager.addScene(scene);
 	}
 
 	/**
@@ -111,7 +111,7 @@ public final class GamePanel implements IGamePanel
 	 */
 	public Scene changeScene(String sceneName)
 	{
-		return gamerender.changeScene(sceneName);
+		return renderManager.changeScene(sceneName);
 	}
 
 	/**
@@ -123,7 +123,7 @@ public final class GamePanel implements IGamePanel
 	public JPanel getCanvas()
 	{
 		
-		return gamerender.getCanvas();
+		return renderManager.getCanvas();
 	}
 
 	/**

@@ -8,13 +8,13 @@ import javax.swing.JPanel;
 import br.com.ajf.game.scene.Scene;
 
 /**
- * The Class GameRender.
+ * The Class RenderManager.
  * Author A.J.F
  */
-public final class GameRender
+public final class RenderManager
 {
 	/** The game render manager. */
-	private final GameRenderManager gameRenderManager;
+	private final Render render;
 	
 	/** The scenes. */
 	private final List<Scene> scenes = new ArrayList<>();
@@ -28,9 +28,9 @@ public final class GameRender
 	 * @param width the width
 	 * @param height the height
 	 */
-	public GameRender(final int width,final int height)
+	public RenderManager(final int width, final int height)
 	{
-		gameRenderManager = new GameRenderManager(width, height);
+		render = new Render(width, height);
 	}
     
 	/**
@@ -38,7 +38,7 @@ public final class GameRender
 	 */
 	public void createJPanelAndAddProperties()
 	{
-		gameRenderManager.createJPanelAndAddProperties();
+		render.createJPanelAndAddProperties();
 	}
 	
 	/**
@@ -46,11 +46,11 @@ public final class GameRender
 	 */
 	public void drawToBufferedImage()
 	{
-		gameRenderManager.drawToBufferedImage();
+		render.drawToBufferedImage();
 		
 		if(scene != null)
 		{
-			this.scene.draw(gameRenderManager.graphics2d);
+			this.scene.draw(render.graphics2d);
 		}
 	}
 	
@@ -59,7 +59,7 @@ public final class GameRender
 	 */
 	public void drawToScreen()
 	{
-		gameRenderManager.drawToScreen();
+		render.drawToScreen();
 	}
 	
 	/**
@@ -99,7 +99,7 @@ public final class GameRender
 	 */
 	public JPanel getCanvas()
 	{
-		return gameRenderManager.canvas;
+		return render.canvas;
 	}
 
 	/**

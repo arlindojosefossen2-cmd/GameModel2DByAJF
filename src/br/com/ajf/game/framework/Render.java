@@ -14,12 +14,12 @@ import br.com.ajf.game.input.InputManager;
 
 
 /**
- *  The Class GameRenderManager.
+ *  The Class Render.
  * Author A.J.F.
  * @version 1.0
  * 28 June 2025
  */
-public final class GameRenderManager
+public final class Render
 {
 	/** The input manager. */
 	public final InputManager inputManager;
@@ -39,7 +39,7 @@ public final class GameRenderManager
      * @param width the width
      * @param height the height
      */
-    public GameRenderManager(int width, int height)
+    public Render(int width, int height)
     {
     	this.inputManager = new InputManager();
 		
