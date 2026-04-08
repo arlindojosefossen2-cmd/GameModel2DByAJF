@@ -21,7 +21,10 @@ public abstract class Player extends AbstractCharacter
 	
 	/** The dialog area. */
 	public final Collider dialogArea = new Collider(0 , 0, 0, 0, 64, 64, "Dialog");
-	
+
+	public final Collider attackArea = new Collider(1, 0,0,0,20,20,"AttackArea");
+
+	public boolean attacking;
 	/**
 	 * Instantiates a new player.
 	 */

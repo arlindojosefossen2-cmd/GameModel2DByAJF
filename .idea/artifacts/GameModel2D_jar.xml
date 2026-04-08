@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="GameModel2D:jar">
+    <output-path>$USER_HOME$/Desktop/java/Documents/jar</output-path>
+    <root id="archive" name="GameModel2D.jar">
+      <element id="module-output" name="GameModel2D" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../sqlitetestdb/sqlite-jdbc-3.50.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
