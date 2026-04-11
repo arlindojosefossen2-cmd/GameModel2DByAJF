@@ -3,6 +3,7 @@ package br.com.ajf.game.character;
 import java.awt.Graphics2D;
 
 import br.com.ajf.game.gameobject.GameObject;
+import br.com.ajf.game.moviment.FourDirections;
 
 /**
  * The Class AbstractCharacter.
@@ -66,7 +67,26 @@ public abstract class AbstractCharacter extends GameObject
 	{
 		characterMovement.prevent(delta);
 	}
-	
+
+	public void prevent(AbstractCharacter abstractCharacter,float delta)
+	{
+		switch (abstractCharacter.direction)
+		{
+			case FourDirections.UP:
+				position.setY(Math.round(position.getY() - velocity.getY()*delta));
+				break;
+			case FourDirections.DOWN:
+				position.setY(Math.round(position.getY() + velocity.getY()*delta));
+				break;
+			case FourDirections.LEFT:
+				position.setX(Math.round(position.getX() - velocity.getX()*delta));
+				break;
+			case FourDirections.RIGHT:
+				position.setX(Math.round(position.getX() + velocity.getX()*delta));
+				break;
+		}
+	}
+
 	/**
 	 * Draw.
 	 *
