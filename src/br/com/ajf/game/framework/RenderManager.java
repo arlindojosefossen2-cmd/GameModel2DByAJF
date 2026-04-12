@@ -1,11 +1,10 @@
 package br.com.ajf.game.framework;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.JPanel;
-
 import br.com.ajf.game.scene.Scene;
+
+import javax.swing.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Class RenderManager.
@@ -17,7 +16,7 @@ public final class RenderManager
 	private final Render render;
 	
 	/** The scenes. */
-	private final List<Scene> scenes = new ArrayList<>();
+	private final Map<String,Scene> scenes = new HashMap<>();
 	
     /** The state manager. */
     private Scene scene;
@@ -70,7 +69,7 @@ public final class RenderManager
 	 */
 	public Scene addScene(final Scene scene)
 	{
-		this.scenes.add(scene);
+		this.scenes.put(scene.getSceneName(),scene);
 		return this.scene = scene;
 	}
 	
@@ -82,13 +81,13 @@ public final class RenderManager
 	 */
 	public Scene changeScene(String name)
 	{
-		for (Scene scene : scenes)
+		Scene scene = scenes.get(name);
+
+		if(scene != null)
 		{
-			if(scene.getSceneName().equalsIgnoreCase(name))
-			{
-				return this.scene = scene;
-			}
+			return this.scene = scene;
 		}
+
 		return null;
 	}
 	
