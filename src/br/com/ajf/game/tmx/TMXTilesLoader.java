@@ -113,6 +113,7 @@ public final class TMXTilesLoader
 			List<Element> prop = xmlUtility.getAllElementsByTagName(props, "property");
 			
 			boolean animated;
+			boolean solid = false;
 			float interval;
 			int frames;
 			
@@ -124,20 +125,30 @@ public final class TMXTilesLoader
 			}
 			
 			animated = Boolean.parseBoolean(auxList.get(0));
-			
+
+			if(auxList.size() == 5 && animated)
+			{
+				solid = Boolean.parseBoolean(auxList.get(4));
+			}
+
+			if(auxList.size() == 3 && !animated)
+			{
+				solid = Boolean.parseBoolean(auxList.get(2));
+			}
+
 			if(animated)
 			{
 				frames = Integer.parseInt(auxList.get(1));
 				interval = Float.parseFloat(auxList.get(2));
 				
-				tiles[id] = new TileAnimated(id, true,
+				tiles[id] = new TileAnimated(id, solid,
 						imageSFX.cropBufferedImage(images, id, frames),
 						interval);
 				auxList.clear();
 			}
 			else
 			{
-				tiles[id] = new Tile(1, false, images[id]);
+				tiles[id] = new Tile(id, solid, images[id]);
 			}
 		}
 	return tiles;
