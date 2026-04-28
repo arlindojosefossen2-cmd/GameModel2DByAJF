@@ -126,18 +126,13 @@ public final class TMXTilesLoader
 			
 			animated = Boolean.parseBoolean(auxList.get(0));
 
-			if(auxList.size() == 5 && animated)
-			{
-				solid = Boolean.parseBoolean(auxList.get(4));
-			}
-
-			if(auxList.size() == 3 && !animated)
-			{
-				solid = Boolean.parseBoolean(auxList.get(2));
-			}
-
 			if(animated)
 			{
+				if(auxList.size() == 5)
+				{
+					solid = Boolean.parseBoolean(auxList.get(4));
+				}
+
 				frames = Integer.parseInt(auxList.get(1));
 				interval = Float.parseFloat(auxList.get(2));
 				
@@ -148,6 +143,10 @@ public final class TMXTilesLoader
 			}
 			else
 			{
+				if(auxList.size() == 3)
+				{
+					solid = Boolean.parseBoolean(auxList.get(2));
+				}
 				tiles[id] = new Tile(id, solid, images[id]);
 			}
 		}
