@@ -63,17 +63,6 @@ public final class Game implements GameBehaviours
 	{
 		gamepanel.setScene(scene);
 	}
-	
-	/**
-	 * Change scene.
-	 *
-	 * @param sceneName the scene name
-	 * @return the scene
-	 */
-	public Scene changeScene(String sceneName)
-	{
-		return gamepanel.changeScene(sceneName);
-	}
 
 	/**
 	 * Sets the icon.

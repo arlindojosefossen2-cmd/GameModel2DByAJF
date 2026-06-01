@@ -104,17 +104,6 @@ public final class GamePanel implements IGamePanel
 	}
 
 	/**
-	 * Change scene.
-	 *
-	 * @param sceneName the scene name
-	 * @return the scene
-	 */
-	public Scene changeScene(String sceneName)
-	{
-		return renderManager.changeScene(sceneName);
-	}
-
-	/**
 	 * Gets the canvas.
 	 *
 	 * @return the canvas
