@@ -34,12 +34,4 @@ public interface IGamePanel
 	 * @return the scene
 	 */
 	Scene setScene(Scene scene);
-	
-	/**
-	 * Change scene.
-	 *
-	 * @param sceneName the scene name
-	 * @return the scene
-	 */
-	Scene changeScene(String sceneName);
 }

@@ -31,15 +31,7 @@ public sealed interface GameBehaviours permits Game
 	 * @param scene the scene
 	 */
 	void addScene(Scene scene);
-	
-	/**
-	 * Change scene.
-	 *
-	 * @param sceneName the scene name
-	 * @return the scene
-	 */
-	Scene changeScene(String sceneName);
-	 
+
 	 /**
  	 * Sets the icon.
  	 *
