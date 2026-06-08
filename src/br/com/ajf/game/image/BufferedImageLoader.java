@@ -75,24 +75,18 @@ public final class BufferedImageLoader
 	/**
 	 * Load buffered images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileNames the filename
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadBufferedImagesFromFiles(String[] filename)
+	public BufferedImage[] loadBufferedImagesFromFiles(String[] fileNames)
 	{
-		BufferedImage[] img = new BufferedImage[filename.length];
-		
-		try
+		BufferedImage[] img = new BufferedImage[fileNames.length];
+
+		for (int i = 0; i < img.length; i++)
 		{
-			for (int i = 0; i < img.length; i++)
-			{
-				img[i] = loadBufferedImage(fileName[i]);
-			}
-		} 
-		catch (IOException e)
-		{
-			throw new RuntimeException(e.getMessage());
+			img[i] = loadBufferedImage(fileNames[i]);
 		}
+
 	return img;
 	}
 	
@@ -127,27 +121,21 @@ public final class BufferedImageLoader
 	/**
 	 * Load scaled buffered images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileNames the fileNames
 	 * @param scale the scale
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] filename,float scale)
+	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] fileNames,float scale)
 	{
-		BufferedImage[] img = new BufferedImage[filename.length];
+		BufferedImage[] img = new BufferedImage[fileNames.length];
 		ImageSFX imageSFX = new ImageSFX();
-		
-		try
+
+		for (int i = 0; i < img.length; i++)
 		{
-			for (int i = 0; i < img.length; i++)
-			{
-				img[i] = loadBufferedImage(fileName[i]);
-				img[i] = imageSFX.scaleBufferedImage(img[i], scale);
-			}
-		} 
-		catch (IOException e)
-		{
-			throw new RuntimeException(e.getMessage());
+			img[i] = loadBufferedImage(fileNames[i]);
+			img[i] = imageSFX.scaleBufferedImage(img[i], scale);
 		}
+
 	return img;
 	}
 	
