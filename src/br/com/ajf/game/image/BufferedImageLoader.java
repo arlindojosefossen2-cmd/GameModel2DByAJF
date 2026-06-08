@@ -32,7 +32,7 @@ public final class BufferedImageLoader
 		BufferedImage img;
 		try
 		{
-			img = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(filename)));
+			img = ImageIO.read(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)));
 		} 
 		catch (IOException e)
 		{
@@ -86,7 +86,7 @@ public final class BufferedImageLoader
 		{
 			for (int i = 0; i < img.length; i++)
 			{
-				img[i] = ImageIO.read(Objects.requireNonNull(this.getClass().getResourceAsStream(filename[i])));
+				img[i] = loadBufferedImage(fileName[i]);
 			}
 		} 
 		catch (IOException e)
@@ -140,7 +140,7 @@ public final class BufferedImageLoader
 		{
 			for (int i = 0; i < img.length; i++)
 			{
-				img[i] = ImageIO.read(Objects.requireNonNull(this.getClass().getResourceAsStream(filename[i])));
+				img[i] = loadBufferedImage(fileName[i]);
 				img[i] = imageSFX.scaleBufferedImage(img[i], scale);
 			}
 		} 
