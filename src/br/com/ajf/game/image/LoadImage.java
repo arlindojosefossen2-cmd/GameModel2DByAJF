@@ -1,9 +1,11 @@
 package br.com.ajf.game.image;
 
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.Objects;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 /**
@@ -11,7 +13,6 @@ import javax.swing.ImageIcon;
  */
 public final class LoadImage
 {
-	
 	/**
 	 * Instantiates a new load image.
 	 */
@@ -28,8 +29,15 @@ public final class LoadImage
 	 */
 	public Image loadImage(String filename)
 	{
-		return Toolkit.getDefaultToolkit().getImage(this.getClass().getResource(filename));
-	}
+        try
+		{
+            return ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(filename)));
+        }
+		catch (IOException e)
+		{
+            throw new RuntimeException(e);
+        }
+    }
 	
 	/**
 	 * Load images from files.
@@ -45,7 +53,8 @@ public final class LoadImage
 		{
 			img[i] = loadImage(filename[i]);
 		}
-	return img;
+
+		return img;
 	}
 	
 	/**
@@ -72,7 +81,7 @@ public final class LoadImage
 			}
 		}
 		
-	return img;
+		return img;
 	}
 	
 	/**
@@ -85,7 +94,7 @@ public final class LoadImage
 	public Image loadScaledImage(String filename, float scale)
 	{
 		ImageSFX imageSFX = new ImageSFX();
-	return imageSFX.scaleImage(loadImage(filename), scale);
+		return imageSFX.scaleImage(loadImage(filename), scale);
 	}
 	
 	/**
@@ -99,7 +108,7 @@ public final class LoadImage
 	{
 		Image[] img = loadImagesFromFiles(filename);
 		ImageSFX imageSFX = new ImageSFX();
-	return imageSFX.scaleImages(img, scale);
+		return imageSFX.scaleImages(img, scale);
 	}
 	
 	/**
@@ -115,6 +124,6 @@ public final class LoadImage
 	{
 		Image[] img = loadImagesFromSheet(filename, rows, cols);
 		ImageSFX imageSFX = new ImageSFX();
-	return imageSFX.scaleImages(img, scale);
+		return imageSFX.scaleImages(img, scale);
 	}
 }

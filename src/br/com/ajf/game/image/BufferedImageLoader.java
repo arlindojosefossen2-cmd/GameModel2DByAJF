@@ -29,14 +29,14 @@ public final class BufferedImageLoader
 	 */
 	public BufferedImage loadBufferedImage(String filename)
 	{
-		BufferedImage img = null;
+		BufferedImage img;
 		try
 		{
 			img = ImageIO.read(Objects.requireNonNull(this.getClass().getResource(filename)));
 		} 
 		catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+			throw new RuntimeException(e.getMessage());
 		}
 	return img;
 	}
@@ -52,21 +52,26 @@ public final class BufferedImageLoader
 	public BufferedImage[] loadBufferedImagesFromSheet(String filename,int rows,int cols)
 	{
 		BufferedImage imgAux = loadBufferedImage(filename);
+		return getBufferedImages(rows, cols, imgAux);
+	}
+
+	private BufferedImage[] getBufferedImages(int rows, int cols, BufferedImage imgAux)
+	{
 		BufferedImage[] img = new BufferedImage[rows*cols];
-		
+
 		int sizeW = imgAux.getWidth()/cols;
 		int sizeH = imgAux.getHeight()/rows;
-		
+
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < cols; j++)
 			{
-				img[j + i*cols] = imgAux.getSubimage(j*sizeW, i*sizeH, sizeW, sizeH); 
+				img[j + i*cols] = imgAux.getSubimage(j*sizeW, i*sizeH, sizeW, sizeH);
 			}
 		}
-	return img;
+		return img;
 	}
-	
+
 	/**
 	 * Load buffered images from files.
 	 *
@@ -86,7 +91,7 @@ public final class BufferedImageLoader
 		} 
 		catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+			throw new RuntimeException(e.getMessage());
 		}
 	return img;
 	}
@@ -101,7 +106,7 @@ public final class BufferedImageLoader
 	public BufferedImage loadScaledBufferedImage(String filename,float scale)
 	{	
 		ImageSFX imageSFX = new ImageSFX();	
-	return imageSFX.scaleBufferedImage(loadBufferedImage(filename), scale);
+		return imageSFX.scaleBufferedImage(loadBufferedImage(filename), scale);
 	}
 	
 	/**
@@ -116,19 +121,7 @@ public final class BufferedImageLoader
 	public BufferedImage[] loadScaledBufferedImagesFromSheet(String filename,int rows,int cols,float scale)
 	{
 		BufferedImage imgAux = loadScaledBufferedImage(filename,scale);
-		BufferedImage[] img = new BufferedImage[rows*cols];
-		
-		int sizeW = imgAux.getWidth()/cols;
-		int sizeH = imgAux.getHeight()/rows;
-		
-		for (int i = 0; i < rows; i++)
-		{
-			for (int j = 0; j < cols; j++)
-			{
-				img[j + i*cols] = imgAux.getSubimage(j*sizeW, i*sizeH, sizeW, sizeH); 
-			}
-		}
-	return img;
+		return getBufferedImages(rows, cols, imgAux);
 	}
 	
 	/**
@@ -153,7 +146,7 @@ public final class BufferedImageLoader
 		} 
 		catch (IOException e)
 		{
-			JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+			throw new RuntimeException(e.getMessage());
 		}
 	return img;
 	}
