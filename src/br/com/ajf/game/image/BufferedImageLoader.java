@@ -24,15 +24,15 @@ public final class BufferedImageLoader
 	/**
 	 * Load buffered image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @return the buffered image
 	 */
-	public BufferedImage loadBufferedImage(String filename)
+	public BufferedImage loadBufferedImage(String fileResourcePath)
 	{
 		BufferedImage img;
 		try
 		{
-			img = ImageIO.read(Objects.requireNonNull(this.getClass().getResourceAsStream(filename)));
+			img = ImageIO.read(Objects.requireNonNull(this.getClass().getResourceAsStream(fileResourcePath)));
 		} 
 		catch (IOException e)
 		{
@@ -75,16 +75,16 @@ public final class BufferedImageLoader
 	/**
 	 * Load buffered images from files.
 	 *
-	 * @param fileNames the filename
+	 * @param fileResourcePaths the filename
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadBufferedImagesFromFiles(String[] fileNames)
+	public BufferedImage[] loadBufferedImagesFromFiles(String[] fileResourcePaths)
 	{
-		BufferedImage[] img = new BufferedImage[fileNames.length];
+		BufferedImage[] img = new BufferedImage[fileResourcePaths.length];
 
 		for (int i = 0; i < img.length; i++)
 		{
-			img[i] = loadBufferedImage(fileNames[i]);
+			img[i] = loadBufferedImage(fileResourcePaths[i]);
 		}
 
 	return img;
@@ -93,46 +93,46 @@ public final class BufferedImageLoader
 	/**
 	 * Load scaled buffered image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param scale the scale
 	 * @return the buffered image
 	 */
-	public BufferedImage loadScaledBufferedImage(String filename,float scale)
+	public BufferedImage loadScaledBufferedImage(String fileResourcePath,float scale)
 	{	
 		ImageSFX imageSFX = new ImageSFX();	
-		return imageSFX.scaleBufferedImage(loadBufferedImage(filename), scale);
+		return imageSFX.scaleBufferedImage(loadBufferedImage(fileResourcePath), scale);
 	}
 	
 	/**
 	 * Load scaled buffered images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param scale the scale
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadScaledBufferedImagesFromSheet(String filename,int rows,int cols,float scale)
+	public BufferedImage[] loadScaledBufferedImagesFromSheet(String fileResourcePath,int rows,int cols,float scale)
 	{
-		BufferedImage imgAux = loadScaledBufferedImage(filename,scale);
+		BufferedImage imgAux = loadScaledBufferedImage(fileResourcePath,scale);
 		return getBufferedImages(rows, cols, imgAux);
 	}
 	
 	/**
 	 * Load scaled buffered images from files.
 	 *
-	 * @param fileNames the fileNames
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @param scale the scale
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] fileNames,float scale)
+	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] fileResourcePaths,float scale)
 	{
-		BufferedImage[] img = new BufferedImage[fileNames.length];
+		BufferedImage[] img = new BufferedImage[fileResourcePaths.length];
 		ImageSFX imageSFX = new ImageSFX();
 
 		for (int i = 0; i < img.length; i++)
 		{
-			img[i] = loadBufferedImage(fileNames[i]);
+			img[i] = loadBufferedImage(fileResourcePaths[i]);
 			img[i] = imageSFX.scaleBufferedImage(img[i], scale);
 		}
 
@@ -142,54 +142,54 @@ public final class BufferedImageLoader
 	/**
 	 * Load flipped buffered image.
 	 *
-	 * @param fileName the file name
+	 * @param fileResourcePath the file name
 	 * @param flipKind the flip kind
 	 * @return the buffered image
 	 */
-	public BufferedImage loadFlippedBufferedImage(String fileName, int flipKind)
+	public BufferedImage loadFlippedBufferedImage(String fileResourcePath, int flipKind)
 	{
 		ImageSFX imageSFX = new ImageSFX();
-		return imageSFX.getFlippedBufferedImage(loadBufferedImage(fileName), flipKind);
+		return imageSFX.getFlippedBufferedImage(loadBufferedImage(fileResourcePath), flipKind);
 	}
 	
 	/**
 	 * Load flipped buffered images from sheet.
 	 *
-	 * @param fileName the file name
+	 * @param fileResourcePath the file name
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param flipKind the flip kind
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadFlippedBufferedImagesFromSheet(String fileName,int rows,int cols, int flipKind)
+	public BufferedImage[] loadFlippedBufferedImagesFromSheet(String fileResourcePath,int rows,int cols, int flipKind)
 	{
 		ImageSFX imageSFX = new ImageSFX();
-		return imageSFX.getFlippedBufferedImages(loadBufferedImagesFromSheet(fileName, rows,cols), flipKind);
+		return imageSFX.getFlippedBufferedImages(loadBufferedImagesFromSheet(fileResourcePath, rows,cols), flipKind);
 	}
 	
 	/**
 	 * Load flipped buffered images from files.
 	 *
-	 * @param fileName the file name
+	 * @param fileResourcePaths the file name
 	 * @param flipKind the flip kind
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadFlippedBufferedImagesFromFiles(String[] fileName, int flipKind)
+	public BufferedImage[] loadFlippedBufferedImagesFromFiles(String[] fileResourcePaths, int flipKind)
 	{
 		ImageSFX imageSFX = new ImageSFX();
-		return imageSFX.getFlippedBufferedImages(loadBufferedImagesFromFiles(fileName), flipKind);
+		return imageSFX.getFlippedBufferedImages(loadBufferedImagesFromFiles(fileResourcePaths), flipKind);
 	}
 	
 	/**
 	 * Gets the scaled image size.
 	 *
-	 * @param filePath the file path
+	 * @param fileResourcePath the file path
 	 * @param scale the scale
 	 * @return the scaled image size
 	 */
-	public ImageSize getScaledImageSize(String filePath,float scale)
+	public ImageSize getScaledImageSize(String fileResourcePath,float scale)
 	{
-		BufferedImage img = loadScaledBufferedImage(filePath, scale);
+		BufferedImage img = loadScaledBufferedImage(fileResourcePath, scale);
 		return new ImageSize(img.getWidth(), img.getHeight());
 	}
 }

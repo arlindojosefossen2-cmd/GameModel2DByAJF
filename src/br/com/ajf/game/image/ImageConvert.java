@@ -14,14 +14,14 @@ import javax.imageio.stream.ImageInputStream;
 import javax.swing.ImageIcon;
 
 /**
- * The Class ImageConversor.
+ * The Class ImageConverT.
  */
-public final class ImageConversor
+public final class ImageConvert
 {
 	/**
-	 * Instantiates a new image Conversor.
+	 * Instantiates a new image Convert.
 	 */
-	public ImageConversor()
+	public ImageConvert()
 	{
 		
 	}

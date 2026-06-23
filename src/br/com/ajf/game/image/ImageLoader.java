@@ -19,184 +19,184 @@ public final class ImageLoader
 	/**
 	 * Load image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @return the image
 	 */
-	public Image loadImage(String filename)
+	public Image loadImage(String fileResourcePath)
 	{
-		return new LoadImage().loadImage(filename);
+		return new LoadImage().loadImage(fileResourcePath);
 	}
 	
 	/**
 	 * Load images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @return the image[]
 	 */
-	public Image[] loadImagesFromFiles(String[] filename)
+	public Image[] loadImagesFromFiles(String[] fileResourcePaths)
 	{
-		return new LoadImage().loadImagesFromFiles(filename);
+		return new LoadImage().loadImagesFromFiles(fileResourcePaths);
 	}
 	
 	/**
 	 * Load images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @return the image[]
 	 */
-	public Image[] loadImagesFromSheet(String filename,int rows,int cols)
+	public Image[] loadImagesFromSheet(String fileResourcePath,int rows,int cols)
 	{	
-		return new LoadImage().loadImagesFromSheet(filename, rows, cols);
+		return new LoadImage().loadImagesFromSheet(fileResourcePath, rows, cols);
 	}
 	
 	/**
 	 * Load scaled image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param scale the scale
 	 * @return the image
 	 */
-	public Image loadScaledImage(String filename, float scale)
+	public Image loadScaledImage(String fileResourcePath, float scale)
 	{
-		return new LoadImage().loadScaledImage(filename, scale);
+		return new LoadImage().loadScaledImage(fileResourcePath, scale);
 	}
 	
 	/**
 	 * Load scaled images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @param scale the scale
 	 * @return the image[]
 	 */
-	public Image[] loadScaledImagesFromFiles(String[] filename, float scale)
+	public Image[] loadScaledImagesFromFiles(String[] fileResourcePaths, float scale)
 	{
-		return new LoadImage().loadScaledImagesFromFiles(filename, scale);
+		return new LoadImage().loadScaledImagesFromFiles(fileResourcePaths, scale);
 	}
 	
 	/**
 	 * Load scaled images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param scale the scale
 	 * @return the image[]
 	 */
-	public Image[] loadScaledImagesFromSheet(String filename,int rows,int cols, float scale)
+	public Image[] loadScaledImagesFromSheet(String fileResourcePath,int rows,int cols, float scale)
 	{
-		return new LoadImage().loadScaledImagesFromSheet(filename, rows, cols, scale);
+		return new LoadImage().loadScaledImagesFromSheet(fileResourcePath, rows, cols, scale);
 	}
 	
 	/**
 	 * Load buffered image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @return the buffered image
 	 */
-	public BufferedImage loadBufferedImage(String filename)
+	public BufferedImage loadBufferedImage(String fileResourcePath)
 	{
-		return new BufferedImageLoader().loadBufferedImage(filename);
+		return new BufferedImageLoader().loadBufferedImage(fileResourcePath);
 	}
 	
 	/**
 	 * Load buffered images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadBufferedImagesFromSheet(String filename,int rows,int cols)
+	public BufferedImage[] loadBufferedImagesFromSheet(String fileResourcePath,int rows,int cols)
 	{
-		return new BufferedImageLoader().loadBufferedImagesFromSheet(filename, rows, cols);
+		return new BufferedImageLoader().loadBufferedImagesFromSheet(fileResourcePath, rows, cols);
 	}
 	
 	/**
 	 * Load buffered images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadBufferedImagesFromFiles(String[] filename)
+	public BufferedImage[] loadBufferedImagesFromFiles(String[] fileResourcePaths)
 	{
-		return new BufferedImageLoader().loadBufferedImagesFromFiles(filename);
+		return new BufferedImageLoader().loadBufferedImagesFromFiles(fileResourcePaths);
 	}
 	
 	/**
 	 * Load scaled buffered image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param scale the scale
 	 * @return the buffered image
 	 */
-	public BufferedImage loadScaledBufferedImage(String filename,float scale)
+	public BufferedImage loadScaledBufferedImage(String fileResourcePath,float scale)
 	{	
-		return new BufferedImageLoader().loadScaledBufferedImage(filename, scale);
+		return new BufferedImageLoader().loadScaledBufferedImage(fileResourcePath, scale);
 	}
 	
 	/**
 	 * Load scaled buffered images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param scale the scale
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadScaledBufferedImagesFromSheet(String filename,int rows,int cols,float scale)
+	public BufferedImage[] loadScaledBufferedImagesFromSheet(String fileResourcePath,int rows,int cols,float scale)
 	{
-		return new BufferedImageLoader().loadScaledBufferedImagesFromSheet(filename, rows, cols, scale);
+		return new BufferedImageLoader().loadScaledBufferedImagesFromSheet(fileResourcePath, rows, cols, scale);
 	}
 	
 	/**
 	 * Load scaled buffered images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @param scale the scale
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] filename,float scale)
+	public BufferedImage[] loadScaledBufferedImagesFromFiles(String[] fileResourcePaths,float scale)
 	{
-		return new BufferedImageLoader().loadScaledBufferedImagesFromFiles(filename, scale);
+		return new BufferedImageLoader().loadScaledBufferedImagesFromFiles(fileResourcePaths, scale);
 	}
 	
 	/**
 	 * Load flipped buffered image.
 	 *
-	 * @param fileName the file name
+	 * @param fileResourcePath the file name
 	 * @param flipKind the flip kind
 	 * @return the buffered image
 	 */
-	public BufferedImage loadFlippedBufferedImage(String fileName, int flipKind)
+	public BufferedImage loadFlippedBufferedImage(String fileResourcePath, int flipKind)
 	{
-		return new BufferedImageLoader().loadFlippedBufferedImage(fileName, flipKind);
+		return new BufferedImageLoader().loadFlippedBufferedImage(fileResourcePath, flipKind);
 	}
 	
 	/**
 	 * Load flipped buffered images from sheet.
 	 *
-	 * @param fileName the file name
+	 * @param fileResourcePath the file name
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param flipKind the flip kind
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadFlippedBufferedImagesFromSheet(String fileName,int rows,int cols, int flipKind)
+	public BufferedImage[] loadFlippedBufferedImagesFromSheet(String fileResourcePath,int rows,int cols, int flipKind)
 	{
-		return new BufferedImageLoader().loadFlippedBufferedImagesFromSheet(fileName, rows, cols, flipKind);
+		return new BufferedImageLoader().loadFlippedBufferedImagesFromSheet(fileResourcePath, rows, cols, flipKind);
 	}
 	
 	/**
 	 * Load flipped buffered images from files.
-	 * @param fileName the file name
+	 * @param fileResourcePaths the file name
 	 * @param flipKind the flip kind
 	 * @return the buffered image[]
 	 */
-	public BufferedImage[] loadFlippedBufferedImagesFromFiles(String[] fileName,int flipKind)
+	public BufferedImage[] loadFlippedBufferedImagesFromFiles(String[] fileResourcePaths,int flipKind)
 	{
-		return new BufferedImageLoader().loadFlippedBufferedImagesFromFiles(fileName, flipKind);
+		return new BufferedImageLoader().loadFlippedBufferedImagesFromFiles(fileResourcePaths, flipKind);
 	}
 	
 	/**
@@ -207,7 +207,7 @@ public final class ImageLoader
 	 */
 	public BufferedImage convertImageToBufferedImage(Image img)
 	{	
-		return new ImageConversor().convertImageToBufferedImage(img);
+		return new ImageConvert().convertImageToBufferedImage(img);
 	}
 	
 	/**
@@ -220,21 +220,21 @@ public final class ImageLoader
 	 */
 	public BufferedImage convertImageToBufferedImage(Image img,int width,int height)
 	{
-		return new ImageConversor().convertImageToBufferedImage(img, width, height);
+		return new ImageConvert().convertImageToBufferedImage(img, width, height);
 	}
 	
 	/**
 	 * Gets the scaled image size.
 	 *
-	 * @param filePath the file path
+	 * @param fileResourcePath the file path
 	 * @param scale the scale
 	 * @return the scaled image size or a default 'new ImageSize(1,1)';
 	 */
-	public ImageSize getScaledImageSize(String filePath,float scale)
+	public ImageSize getScaledImageSize(String fileResourcePath,float scale)
 	{
 		if(scale > 0)
 		{
-			return new BufferedImageLoader().getScaledImageSize(filePath, scale);
+			return new BufferedImageLoader().getScaledImageSize(fileResourcePath, scale);
 		}
 		return new ImageSize(1, 1);
 	}

@@ -24,14 +24,14 @@ public final class LoadImage
 	/**
 	 * Load image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @return the image
 	 */
-	public Image loadImage(String filename)
+	public Image loadImage(String fileResourcePath)
 	{
         try
 		{
-            return ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(filename)));
+            return ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(fileResourcePath)));
         }
 		catch (IOException e)
 		{
@@ -42,16 +42,16 @@ public final class LoadImage
 	/**
 	 * Load images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @return the image[]
 	 */
-	public Image[] loadImagesFromFiles(String[] filename)
+	public Image[] loadImagesFromFiles(String[] fileResourcePaths)
 	{
-		Image[] img = new Image[filename.length];
+		Image[] img = new Image[fileResourcePaths.length];
 		
-		for (int i = 0; i < filename.length; i++)
+		for (int i = 0; i < fileResourcePaths.length; i++)
 		{
-			img[i] = loadImage(filename[i]);
+			img[i] = loadImage(fileResourcePaths[i]);
 		}
 
 		return img;
@@ -60,14 +60,14 @@ public final class LoadImage
 	/**
 	 * Load images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @return the image[]
 	 */
-	public Image[] loadImagesFromSheet(String filename,int rows,int cols)
+	public Image[] loadImagesFromSheet(String fileResourcePath,int rows,int cols)
 	{
-		ImageIcon iconAux  = new ImageIcon(loadImage(filename));
+		ImageIcon iconAux  = new ImageIcon(loadImage(fileResourcePath));
 		Image[] img = new Image[rows*cols];
 		
 		int sizeW = iconAux.getIconWidth()/cols;
@@ -87,26 +87,26 @@ public final class LoadImage
 	/**
 	 * Load scaled image.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param scale the scale
 	 * @return the image
 	 */
-	public Image loadScaledImage(String filename, float scale)
+	public Image loadScaledImage(String fileResourcePath, float scale)
 	{
 		ImageSFX imageSFX = new ImageSFX();
-		return imageSFX.scaleImage(loadImage(filename), scale);
+		return imageSFX.scaleImage(loadImage(fileResourcePath), scale);
 	}
 	
 	/**
 	 * Load scaled images from files.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePaths the fileResourcePaths
 	 * @param scale the scale
 	 * @return the image[]
 	 */
-	public Image[] loadScaledImagesFromFiles(String[] filename, float scale)
+	public Image[] loadScaledImagesFromFiles(String[] fileResourcePaths, float scale)
 	{
-		Image[] img = loadImagesFromFiles(filename);
+		Image[] img = loadImagesFromFiles(fileResourcePaths);
 		ImageSFX imageSFX = new ImageSFX();
 		return imageSFX.scaleImages(img, scale);
 	}
@@ -114,15 +114,15 @@ public final class LoadImage
 	/**
 	 * Load scaled images from sheet.
 	 *
-	 * @param filename the filename
+	 * @param fileResourcePath the fileResourcePath
 	 * @param rows the rows
 	 * @param cols the cols
 	 * @param scale the scale
 	 * @return the image[]
 	 */
-	public Image[] loadScaledImagesFromSheet(String filename,int rows,int cols, float scale)
+	public Image[] loadScaledImagesFromSheet(String fileResourcePath,int rows,int cols, float scale)
 	{
-		Image[] img = loadImagesFromSheet(filename, rows, cols);
+		Image[] img = loadImagesFromSheet(fileResourcePath, rows, cols);
 		ImageSFX imageSFX = new ImageSFX();
 		return imageSFX.scaleImages(img, scale);
 	}
